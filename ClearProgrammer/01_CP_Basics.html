@@ -127,7 +127,7 @@ let sum = 0
 for (const number of numbers){
     sum = sum + number
 }
-console.log(sum)
+//console.log(sum)
 
 
 
@@ -136,10 +136,10 @@ console.log(sum)
 const sumArray = (numbers) => {
     let result = 0
     for (const number of numbers){
-        console.log(number)
+        //console.log(number)
         result = result + number
     }
-    return result
+    return result + ` Sum of Array `
 }
 console.log(sumArray([1,2,3,4,5,6]))
 
@@ -152,26 +152,105 @@ const howManyLetters = (a) => {
         //console.log(Number(letter) + 1)
         sum = Number(letter)+1
     }
-    return {sum}   
+    return {sum} + ` Total letter In String `  
 
 }
 //console.log(howManyLetters(prompt("Enter Text")))
 
-
+// ----------- Max Number Function in Array
 
 const maxNumber = (numbers) =>{
-    const result = numbers[0]
+    let result = numbers[0]
     for(const number of numbers)
     {
-        if(numbers > result )
+        if(number > result )
         {   
-            result = numbers
-            console.log(`${numbers} is greater`)
+            result = number
+        }
+    }
+    //console.log(`${result} is greater`)
+    return result + ` Is Greater Number`
+}
+console.log(maxNumber([2,5,1,9,3]))
+
+
+// --------- Letter Frequency
+
+
+const letterFrequency = (a) => {
+    let obj = {}
+    for(const letter of a){
+        if(letter in obj){
+            obj[letter] += 1
+        }
+        else {
+            obj[letter] = 1
+        }
+    }
+    return obj
+}
+// console.log(letterFrequency("tutu"))
+ 
+
+
+// --------------- Word Frequency ------
+
+const wordFrequency = (phrase) => {
+    let frequency = {}
+    words = phrase.split(' ')
+    return letterFrequency(words)
+}
+console.log(wordFrequency("TP MP TP RJ"))
+
+
+// ----------------------DOuble Number Function
+
+const doubleNumber = (numbers) => {
+    let result = []
+    for(const number of numbers)
+    {
+        result.push(number * 2)
+    }
+    return result
+}
+console.log(doubleNumber([1,12,3]))
+
+// ------- Same Function Using Array method MAP
+
+const doubleNumberMap = (numbers) =>{
+    return numbers.map(number => number * 2)
+}
+
+
+// ----------------  Filter Method
+
+const filter = (numbers, gT) => {
+    let result = []
+    for(const number of numbers){
+        if(number>gT){
+            result.push(number)
         }
     }
     return result
 }
-console.log(maxNumber([2,5,1,9,3]))
+console.log(filter([1,2,3,4,5,6], 3))
+
+// -----------------  Using .Filter Method
+
+const nums = [ 1, 2 , 3, 4, 5, 6].filter(num => num>4)
+console.log(nums)
+
+const students = [
+    { name: 'TP', city : 500},
+    { name: 'Tarun', city : 100},
+    { name: 'Tushar', city : 300},
+]
+let result = students.filter(student => student.city > 200)
+console.log(result)
+
+const testReduce = [10, 20, 30]
+console.log(testReduce.reduce((pre,nex) => pre + nex ))
+
 
 
 </script>
