@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<script>
-/*
 function sayMyName(name){
     console.log(name)
 }
@@ -18,9 +14,9 @@ function greeting(name){
 
     console.log(`Hi ${name} Nice To Meet You.. `)
 }
-*/
 
-// greeting("Tarun")
+
+ greeting("Tarun")
 
                     // Function ------------------------------
 
@@ -253,8 +249,4 @@ console.log(testReduce.reduce((pre,nex) => pre + nex ))
 
 
 
-</script>
 
-
-
-</html>
