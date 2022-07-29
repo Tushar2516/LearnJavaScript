@@ -5,9 +5,10 @@
 <div style="display:flex; justify-content:space-between">
     <button class = 'colorSquare' id="red" value="red" style="height:100px; width:100px; background-color:red"></button>
     <button class = 'colorSquare' id="yellow" value="yellow" style="height:100px; width:100px; background-color: yellow"></button>
-    <button class = 'colorSquare' id="green" value="green " style="height:100px; width:100px; background-color:green"></button>
-
+    <button class = 'colorSquare' id="green" value="green" style="height:100px; width:100px; background-color:green"></button>
 </div>
+    <br>
+    <button id="clear-game">Clear Game</button>
 
 <script>
     /* let title = document.getElementById('title')
@@ -21,22 +22,37 @@
 
     // ------- Code For # Boxes Counter
 
-    let redDiv = document.getElementById('red')
+    /* let redDiv = document.getElementById('red')
     let yellowDiv = document.getElementById('yellow')
-    let greenDiv = document.getElementById('green')
+    let greenDiv = document.getElementById('green') */
 
-    redDiv.onclick = () => console.log('Clicked Red')
-    yellowDiv.onclick = () => console.log('Clicked yellow')
-    greenDiv.onclick = () => console.log('Clicked Green')
+    //redDiv.onclick = () => console.log('Clicked Red')
+    //yellowDiv.onclick = () => console.log('Clicked yellow')
+    //greenDiv.onclick = () => console.log('Clicked Green')
 
     const squares = document.querySelectorAll('.colorSquare')
-    console.log(squares[0].value)
-    console.log(squares[1].value)
-    console.log(squares[2].value)
-
+   
+    // Using forEach Loop
+    const timesClicked = {'red':0, 'green':0 ,'yellow':0}
     squares.forEach(square => {
-        square.onclick = () => console.log(square.value)
-    })
+        square.onclick = () => {
+            timesClicked[square.value] += 1
+            square.innerText = timesClicked[square.value]
+        }
+    })  
+
+    // ---------- Clear Score Button Code
+
+    function clearScores() {
+        timesClicked.red = 0
+        timesClicked.yellow = 0
+        timesClicked.green = 0
+        squares.forEach(square => {square.innerText = ''})
+    }
+    const clearGameBtn = document.getElementById('clear-game')
+    clearGameBtn.onclick = () => clearScores()
+
+    
 
 
 </script>
