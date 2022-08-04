@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+<script>
+
+
+    class Car {
+        constructor (name,color,topSpeed){
+            //Properties
+            this.name = name
+            this.color = color
+            this.topSpeed = topSpeed
+            this.currentSpeed = 0;
+
+            // 'this' means its ferrari object which created outside of class
+        }
+
+        zeroToSixty(){
+            setTimeout(() => {
+                if(this.name == 'ferrari'){
+                this.currentSpeed = 60;
+                console.log(`This is too fast current speed is ${this.currentSpeed}`)
+                }else{
+                    this.currentSpeed = 90
+                    console.log(`This is in Air by Porsche ${this.currentSpeed}`)
+                }
+            })
+        }
+
+        drive(){
+            
+            if(this.name == 'ferrari'){
+            this.currentSpeed += 10
+            console.log(`Driving speed at ${this.currentSpeed}`)
+            }else{
+                this.currentSpeed += 20
+                console.log(`Driving with Porsche ${this.currentSpeed}`)
+            }
+            
+        }
+
+        break(){
+            console.log('Breaking')
+            this.currentSpeed -= 10
+
+        }
+        stop(){
+            console.log('Stop The Car')
+            this.currentSpeed = 0
+        }
+
+    }
+
+    // Object of class
+
+    const ferrari = new Car('ferrari', 'red', 250)
+   
+    /* console.log(ferrari.name)
+    console.log(ferrari)
+    console.log(ferrari.currentSpeed)
+    ferrari.drive()
+    ferrari.break()
+    console.log(ferrari.currentSpeed)
+
+    ferrari.zeroToSixty() */
+
+    ferrari.drive()
+    ferrari.drive()
+    ferrari.drive()
+   
+    //console.log(ferrari.currentSpeed)
+    ferrari.break()
+    console.log(ferrari.currentSpeed)
+    ferrari.stop()
+    console.log(ferrari.currentSpeed)
+
+    // New Object of class second Car
+    
+    const porsche = new Car('Brad Porsche','Nevy Blue', 300)
+    console.log(porsche)
+    porsche.drive(45)
+   // porsche.zeroToSixty()
+
+
+class Bank {
+    constructor(name,city,amount){
+        //properties
+        this.name = name
+        this.city = city
+        this.amount = amount
+    }
+    // Methods of Bank class
+    balance(){
+        console.log(`Your Total Balance is ${this.amount}`)
+    }
+    withdraw(wamount){
+        console.log(`Your Total Balance Is ${this.amount}`)
+        this.amount = this.amount - wamount
+        console.log(`Your Withdraw Amount is ${wamount} and now total amount is ${this.amount}`)
+        
+    }
+    deposit(a){
+        this.amount = this.amount +  a
+        console.log(`Total balance After Deposit is ${this.amount}`)
+    }
+
+}
+
+const savingAccount = new Bank('Tushar', 'Himatnagar',1500)
+console.log(savingAccount)
+let userChoice = Number(prompt('Number should be 1 or 2'))
+switch(userChoice) {
+
+case 1: 
+console.log(savingAccount.balance())
+console.log(savingAccount.deposit(Number(prompt(`Your Current Balance is ${savingAccount.amount}.  Now Enter Your Deposit Amount`))))
+break
+case 2:
+    console.log(savingAccount.balance())
+    console.log(savingAccount.withdraw(Number(prompt(`Your Current Balance is ${savingAccount.amount}.  Now Enter Your WithDraw Amount`))))
+    break
+default:
+    console.log('Enter Number betwewn 1 or 2')
+}
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
