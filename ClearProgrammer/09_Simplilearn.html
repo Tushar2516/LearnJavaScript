@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+       /* var car = {
+            car_manu : "Honda",
+            car_model : "City",
+            price : 15000,
+
+            allWheelDrive: function(){
+                document.write("This is four wheel car")
+            }
+
+        }
+        car.allWheelDrive() */
+        //document.write("<h1>" + car.allWheelDrive() + "</h1>");
+
+       /* function cars(car_manu, car_model, price) {
+
+        }*/
+
+        const car = function(car_manu, car_model, price) {
+            this.car_manu = car_manu;
+            this.car_model = car_model;
+            this.price = price;
+
+            this.allWheel  = () => {
+                //document.write("This car comes with four wheel drive");
+                console.log("this is wheel");
+            } 
+        }
+        let c1 = new car("Audi", "Q3", 150000);
+        //document.write("<h4>" + c1.allWheel() + "</h4>"); 
+        c1.allWheel();
+        car.car_color = "Black"
+        
+
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+</head>
+<body>
+    
+    <div id="play">Hello World</div>
+
+
+
+<script>
+
+   /* let num = 0
+    while(num<5){
+        console.log("Looping", num)
+        num++
+    }   */
+
+
+    // addEventListner
+
+    let playDiv = document.getElementById("play").innerText
+    console.log(playDiv)
+    playDiv.onclick = () =>{
+        console.log("Click It")
+    }
+
+   
+
+    document.addEventListener('Keydown', function(e){
+        if(e.key == "z"){
+            console.log("It's Z")
+            document.getElementById('punch').play()
+
+        }else{
+            console.log("Not Z") 
+        }
+    })
+
+
+</script>
+
+
+
+</body>
+
+    <audio src="D:/E/Audio/02 - Chehra Kya Dekhte Ho(MyMp3Song.Com).mp3"
+    style="display:none"
+    type="audio/mpeg"
+    id="punch"
+    >
+
+
+    </audio>
+
+
+</html>
