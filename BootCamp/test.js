@@ -67,9 +67,20 @@ for(let i=0; i<names.length;i++){
 }
 
 
+// Nested Array
 
+const frds = [ 
+    ['mitesh','mayank','rohan'],
+    ['anish','harpal','purvesh'],
+    ['nixit','chetan','gopal'] 
+]
 
-
+for(let i=0; i<frds.length; i++){
+    const row = frds[i]
+    for(let j=0; j<row.length; j++){
+        console.log(row[j])
+    }
+}
 
 
 
