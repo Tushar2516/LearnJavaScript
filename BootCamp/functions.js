@@ -130,10 +130,19 @@ const cat = {
     color: 'grey',
     breed: 'scottish fold',
     meow(){
-          console.log(`${this.name} says MEOWWW`) ; 
+            console.log(`${this.name} says MEOWWW`) 
+            console.log(`${this.color} color of cate`)
+            console.log(`${this.bread} breed of cat`)
     }
 }
 cat.meow()
+
+
+
+
+
+
+
 
 
 
