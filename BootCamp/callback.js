@@ -84,3 +84,60 @@ const recordCollection = {
   }
   
   updateRecords(recordCollection, 5439, 'artist', 'ABBA');
+
+
+  // Arrow Functions 
+
+const square = (x) =>{
+    return x * x;
+}
+square(5)
+
+const mySum = (x, y) =>{
+    return x + y;
+}
+mySum(15,10)
+
+const rollDie = () => {
+    return Math.floor(Math.random() * 6) + 1
+}
+rollDie()
+
+const isEven = num => (
+    num % 2 === 0
+)
+isEven(10)
+const isEven2 = num => num%2 === 0;
+isEven2(5)
+
+
+const t = movies.map(function(movie) {
+    return `${movie.title} - ${movie.score / 10}`
+})
+
+
+// setTimeOut
+
+console.log("Helllo")
+setTimeout(() => {
+    console.log("... are you still there ?")
+}, 3000)
+console.log("good bye")
+
+// filter method
+const number = [1,2,3,4,5,6,7]
+number.filter(n => {
+    return n % 2 == 0
+})
+
+movies.filter(newVar => { 
+    return newVar.score >98 
+})
+
+// Implicite Return
+
+const highStar = movies.filter(m => m.score > 97 )
+
+movies.filter(m => m.score > 97).map(m => m.title)
+
+
