@@ -141,3 +141,100 @@ const highStar = movies.filter(m => m.score > 97 )
 movies.filter(m => m.score > 97).map(m => m.title)
 
 
+// Some AND Every Method()
+
+const exams = [50,40,30,20,80,70]
+exams.every
+
+
+[3,5,7,9,11].reduce((acc, curr) =>
+    {
+        return acc + curr;
+    });
+
+const prices = [9,15,20,7,50]
+prices.reduce((total, price) => {
+    return total + price
+})
+
+
+// Spread Operator with function
+
+const nums2 = [9,8,7,6]
+Math.min(...nums2)
+Math.max(...nums2)
+
+// spread with array
+
+const stud = ['tp','tushar','tarun']
+const stud2 = ['tp2','tushar2','tarun2']
+const allStud = [...stud, ...stud2]
+
+// spread with objects
+
+const dataFrom = {
+    email : 'tp@gmail.com',
+    pass : 'ttt@123',
+    username : 'tushar322'
+}
+const newUser = {...dataFrom, id:23, isAdmin: false}
+
+
+function sum2(...nums){
+    return nums.reduce((total,el) => total + el)
+}
+
+// Rest parameter 
+// here ... spread opeator work for collecting parameter 
+// passing multiple parameter using ...rest params
+
+function raceResults(gold, silver, ...everyoneElse){
+    console.log(`GOLD MEDAL GOES TO:  ${gold}`)
+    console.log(`silver MEDAL GOES TO:  ${silver}`)
+    console.log(`THANKS TO EVERYONE:  ${everyoneElse}`)
+}
+
+// Array Destructuring
+
+const madels = ['tp', 'tushar', 'tarun', 'mitesh'];
+const [gold,silver,bronze] = madels
+gold;
+silver;
+
+const [gold2, ...all] = madels
+all;
+
+
+// Object Destrcturing 
+
+const user = {
+    email : 'patel@gmail.com',
+    pass : 'patel123',
+    fName : 'Tushar',
+    lName : 'Patel',
+    bDate : '21/10/1998'
+}
+const {email, pass, ...allUser} = user
+email;
+allUser;
+
+const {bDate : birthYear, pass : password}  = user
+
+
+// Parameter Destructuring
+
+const fullName = ({first, last}) => {
+    return `${first} ${last}` }
+const runner = {
+    first : 'tushar',
+    last : 'Patel',
+    country : 'IND'
+}
+fullName(runner)
+
+
+
+
+
+
+
