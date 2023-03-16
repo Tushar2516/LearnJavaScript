@@ -1,40 +1,33 @@
 import * as model from './model.js';
 import recipeView from './views/recipeView.js';
-
+import searchView from './views/searchView.js';
+import resultView from './views/resultView.js';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
 
-
-const recipeContainer = document.querySelector('.recipe');
-
-const timeout = function (s) {
-  return new Promise(function (_, reject) {
-    setTimeout(function () {
-      reject(new Error(`Request took too long! Timeout after ${s} second`));
-    }, s * 1000);
-  });
-};
-
+ 
 // https://forkify-api.herokuapp.com/v2
 
 ///////////////////////////////////////
 
 
+if(module.hot){
+  module.hot.accept()
+}
 
 
-//  Function For Show Recipe
+
+//  Controller Function For Show Recipe
 const controlRecipes = async function(){
   try{
-
     const id = window.location.hash.slice(1);
     // console.log(id); 
 
     if(!id) return ;
     // recipeView.renderSpinner()
-    
-    
+       
     // 1: Loading The Recipe
     await model.loadRecipe(id);
     
@@ -42,22 +35,40 @@ const controlRecipes = async function(){
     recipeView.render(model.state.recipe);
     // other way instead of Render()
     // const recipeView = new recipeView(model.state.recipe)
-
-  
   } catch(err){
-    alert(err);
+    // console.log(err);
+    recipeView.renderError(`We could not find that recipe. Please try another one!`)
   }
 }
-// controlRecipes()
 
+// Controller Function For Search
 
-const arr = ['hashchange','load'].forEach(ev => window.addEventListener(ev, controlRecipes))
+const controlSearchResults = async function(){
+  try{
+    // resultView.renderSpinner()
+    
+    // 1. Get Search Query
+    const query = searchView.getQuery()
+    // console.log(query);
+    if(!query) return;
+    // 2. Load Search Result
+    await model.loadSearchResults(query)
+    //  3. Render
+    // console.log(model.state.search.results);
+    resultView.render(model.state.search.results)
+  } catch(err){
+    resultView.renderError('No, recipes found for your query! Please Try Again...')
+  }
+};
+controlSearchResults();
 
-// window.addEventListener('hashchange',controlRecipes)
-// window.addEventListener('load',controlRecipes)
-
-
-
+//  Initial Function
+const init = function(){
+  // Publisher Subscriber (pub-sub pattern)
+  recipeView.addHandlerRender(controlRecipes);
+  searchView.addHandlerSearch(controlSearchResults)
+}
+init()
 
 
 
