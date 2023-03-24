@@ -1,5 +1,5 @@
 <template>
-  <div class="productDetailsPage">
+  <div v-if="product">
     <div class="img-wrap">
       <img :src="product.imageName" alt="">
     </div>
@@ -8,16 +8,20 @@
       <h3 class="price">{{product.price}}</h3>
       <button class="add-to-cart">Add To Cart</button>
     </div>
-
+  </div>
+  <div v-else>
+    <NotFoundPage />
   </div>
 </template>
 
 <script>
-import Button from '../../../vue-task-tracker/src/components/Button.vue'
+import  NotFoundPage from './NotFoundPage.vue';
 import {products} from '../temp-data'
 
 export default {
-  components: { Button },
+  components: { 
+    NotFoundPage,
+   },
   name:'ProductDetailPage',
   data(){
     return{
