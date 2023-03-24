@@ -5,7 +5,7 @@ import { cartItems as cartItemsRaw,products as productsRaw } from '../src/temp-d
 let cartItems = cartItemsRaw;
 let products = productsRaw;
 
-const url = `mongodb+srv://admin:admin@cluster0.1gbnguq.mongodb.net/?retryWrites=true&w=majority`
+const url = `mongodb+srv://<>:<>@cluster0.1gbnguq.mongodb.net/?retryWrites=true&w=majority`
 const client = new MongoClient(url)
 
 const app = express();
